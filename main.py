@@ -46,7 +46,7 @@ def main():
             global_first_hand.rotate()
             Game.what_symbol_players_have(global_first_hand)
     Game.who_is_final_winner(player1, player2)
-    time.sleep(5)
+    Game.goodbye()
 
 if __name__ == "__main__":
 
