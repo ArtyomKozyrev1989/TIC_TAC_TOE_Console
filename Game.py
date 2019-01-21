@@ -4,7 +4,7 @@ import time
 def goodbye():
     print("Thank you for the game, the program will be terminated in 10 seconds")
     n = 10
-    for i in range(0:10:2):
+    for i in range(0,10,2):
           time.sleep(2)
           print(f"{n-i} seconds left")
     print("See you!")
