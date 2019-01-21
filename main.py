@@ -53,6 +53,6 @@ if __name__ == "__main__":
     try:
         main()
     except Exception as ex:
-        print(f"The following problem happened in the program:  {ex}"
+        print(f"The following problem happened in the program:  {ex}")
         print("The program will be terminated in 10 seconds")
         time.sleep(10)
