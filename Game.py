@@ -1,5 +1,15 @@
 import string
+import time
 
+def goodbye():
+    print("Thank you for the game, the program will be terminated in 10 seconds)
+    n = 10
+    for i in range(0:10:2):
+          time.sleep(2)
+          print(f"{n-i} seconds left")
+    print("See you!")
+    time.sleep(1)
+          
 def what_symbol_players_have(current_hand):
     player1 = current_hand[0]
     player2 = current_hand[1]
