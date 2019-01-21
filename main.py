@@ -34,6 +34,8 @@ def main():
                 break
             steps += 1
             if steps == 9:
+                os.system('cls')
+                Game.draw_table(made_turns)
                 print("Nobody won the round. It is Draw!\n")
                 break
         if not Game.play_again():
