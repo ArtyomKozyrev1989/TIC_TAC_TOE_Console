@@ -25,6 +25,7 @@ def main():
             if not Game.check_win_conditions(made_turns, current_hand[0]):
                 current_hand.rotate()
             else:
+                os.system('cls')
                 Game.draw_table(made_turns)
                 Game.player_win_round(current_hand[0])
                 for player in global_first_hand:
