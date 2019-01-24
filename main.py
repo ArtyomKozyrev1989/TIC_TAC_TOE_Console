@@ -10,7 +10,7 @@ def main():
     Game.welcome()
     time.sleep(2)
     play_again = True
-    players_names = Game.choose_player_name()
+    players_names = Game.choose_players_names()
     player1 = Player(name=players_names[0], symbol="X")
     player2 = Player(name=players_names[1], symbol="O")
     global_first_hand = deque([player1, player2])
