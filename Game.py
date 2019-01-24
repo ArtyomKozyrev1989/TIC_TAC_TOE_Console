@@ -1,6 +1,49 @@
 import string
 import time
 
+
+def _normalize_name(name):
+    name = name.split()
+    normalized_name = ""
+    for i in range(len(name)):
+        if i != len(name) - 1:
+            normalized_name += name[i] + " "
+        else:
+            normalized_name += name[i]
+    return normalized_name
+
+def _check_name_symbols(name):
+    allowed_symbols = string.ascii_letters + string.digits
+    for symbol in allowed_symbols:
+        if symbol in name:
+            return True
+    return False
+
+def _choose_player_name():
+    while True:
+        name = input("Please choose player name: ")
+        if len(name) > 40:
+            print("Player's name should be less than 40 symbols, please try again!")
+        else:
+            if _check_name_symbols(name):
+                return _normalize_name(name)
+            else:
+                print("Player's name should contain digits or letters, please try again!")
+                
+def choose_players_names():
+    player1_name = _choose_player_name()
+    print(f"The First player's name is {player1_name}")
+    while True:
+        player2_name = _choose_player_name()
+        if player1_name != player2_name:
+            break
+        else:
+            print("Player2 can't have the same name, please choose another name")
+    print(f"The Second player's name is {player2_name}\n")
+    print(f"{player1_name} play X")
+    print(f"{player2_name} play O\n")
+    return player1_name, player2_name
+
 def goodbye():
     print("Thank you for the game, the program will be terminated in 10 seconds")
     seconds_left = 10
@@ -16,11 +59,6 @@ def what_symbol_players_have(current_hand):
     print(f"{player1.name} plays {player1.symbol}")
     print(f"{player2.name} plays {player2.symbol}")
 
-def check_player_name(name):
-    for i in name:
-        if i in (string.ascii_letters + string.digits):
-            return True
-    return False
 def welcome():
     print(
         '''
@@ -35,27 +73,6 @@ def welcome():
 
         ''')
 
-def choose_player_name():
-    while True:
-        player1_name = input("Please choose the first player name: ")
-        if check_player_name(player1_name):
-            break
-        else:
-            print("The name should contain digits or letters")
-    while True:
-        while True:
-            player2_name = input("Please choose the second player name: ")
-            if check_player_name(player2_name):
-                break
-            else:
-                print("The name should contain digits or letters")
-        if player1_name != player2_name:
-            break
-        else:
-            print("Player2 can't have the same name, please choose another name")
-    print(f"{player1_name} play X")
-    print(f"{player2_name} play O\n")
-    return player1_name, player2_name
 
 def play_again():
     print("Do you want to play again?")
